@@ -194,6 +194,35 @@
                                 <div class="col-md-12">
                                     <span class="nci">Nº {{ $envs->id }}</span>
                                 </div>
+                                @switch($envs->loja_origem)
+                                    @case (1)
+                                        <div class="col-md-12">De: Jacobina</div>
+                                    @break
+
+                                    @case (2)
+                                        <div class="col-md-12">De: Capim Grosso</div>
+                                    @break
+
+                                    @case (3)
+                                        <div class="col-md-12">De: Senhor do Bonfim</div>
+                                    @break
+
+                                    @case (4)
+                                        <div class="col-md-12">De: Juazeiro</div>
+                                    @break
+
+                                    @case (5)
+                                        <div class="col-md-12">De: Petrolina</div>
+                                    @break
+
+                                    @case (6)
+                                        <div class="col-md-12">De: River</div>
+                                    @break
+
+                                    @case (7)
+                                        <div class="col-md-12">De: Escritório</div>
+                                    @break
+                                @endswitch
 
                                 @switch($envs->loja_destinatario)
                                     @case (1)

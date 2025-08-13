@@ -33,21 +33,27 @@ class HomeController extends Controller
          $pendente=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
         ->where('status','aberto')->count();
         $ultimosEnvios=Correspondencia::where('loja_origem', Auth::user()->loja_id)
-        ->limit(5)
+        ->limit(4)
+        ->orderBy('created_at','desc')
         ->get();
 
         $correspondencias=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
-        ->where('status','aberto')->get();
+        ->where('status','aberto')
+        ->orderBy('created_at','desc')
+        ->get();
 
         }else{
 
              $enviadas=Correspondencia::all()->count();
         $recebidas=Correspondencia::where('status','recebido')->count();
          $pendente=Correspondencia::where('status','aberto')->count();
-         $ultimosEnvios=Correspondencia::limit(5)
+         $ultimosEnvios=Correspondencia::limit(4)
+         ->orderBy('created_at','desc')
         ->get();
 
-          $correspondencias=Correspondencia::where('status','aberto')->get();
+          $correspondencias=Correspondencia::where('status','aberto')
+          ->orderBy('created_at','desc')
+          ->get();
 
         }
 
