@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i class="fa fa-user"></i>Cadastrar usuário</h1>
+        <h1 class="h3 mb-0 text-gray-800"><i class="fa fa-user"></i>Novo Funcionario</h1>
 
     </div>
 
@@ -20,31 +20,40 @@
             <div class="card shadow mb-4">
 
                 <div class="card-body">
-                    <form action="{{route('store-usuario')}}" method="post">
+                    <form action="{{route('store-funcionario')}}" method="post">
                         @csrf
+
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="nome">Nome:</label>
-                                <input type='text' class="form-control" name="name">
+                                <input type='text' class="form-control" name="nome" id="nome">
                             </div>
+
                             <div class="col-md-4 mt-3">
-                              <label for="email">Email:</label>
-                                <input type='mail' class="form-control" name="email">
-                            </div>
-                             <div class="col-md-4 mt-3">
-                                <label for="password">Senha:</label>
-                                <input type='password'  class="form-control" name="password" id="password">
-                            </div>
+                                <label for="loja">Loja:</label>
+                                <select name="loja_id" class="form-control" id="loja_id">
 
 
-                              <div class="col-md-4 mt-3">
-                                <label for="permissao">Permissão:</label>
-                                <select name="permissao" class="form-control" id="permissao">
-                                    <option value="">Nivel de permissão</option>
-                                    <option value="admin">Adminsitrador</option>
-                                    <option value="loja">Loja</option>
+                                    @foreach($lojas as $loja)
+
+                                    <option value="{{$loja->id}}">{{$loja->nome}}</option>
+
+                                    @endforeach
+
                                 </select>
                             </div>
+
+
+                             <div class="col-md-4 mt-3">
+                                <label for="status">Status:</label>
+                                <select name="status" class="form-control" id="status">
+
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                </select>
+                            </div>
+
+
 
                         </div>
                         <div class="row">

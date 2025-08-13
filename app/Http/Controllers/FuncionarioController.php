@@ -17,10 +17,11 @@ class FuncionarioController extends Controller
    }
 
    public function create(){
+    $lojas=Loja::all();
 
 
 
-    return view('painel.funcionario.create');
+    return view('painel.funcionario.create', compact('lojas'));
    }
 
    public function store(Request $request){
@@ -40,7 +41,7 @@ class FuncionarioController extends Controller
 
 
 
-    return redirect()->route('funcionarios')->with('success, Funcionario cadastrado com sucesso');
+    return redirect()->route('funcionario.funcionarios')->with('success, Funcionario cadastrado com sucesso');
    }
 
    public function edit($id){
