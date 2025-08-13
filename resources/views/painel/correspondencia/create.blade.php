@@ -24,7 +24,7 @@
                             <div class="col-md-3">
                                 <label for="origem">Origem</label>
 
-                                <select name="origem" id="origem" class="form-control">
+                                <select name="origem" id="origem" class="form-control" required>
                                     <option value="">Selecione a loja de origem</option>
                                     @foreach ($lojas as $loja)
                                         <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="destino">Destino</label>
-                                <select name="destino" id="destino" class="form-control">
+                                <select name="destino" id="destino" class="form-control" required>
                                     <option value="">Selecione a loja de destino</option>
                                     @foreach ($lojas as $loja)
                                         <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="de">De</label>
-                                <select name="de" id="de" class="form-control">
+                                <select name="de" id="de" class="form-control" required>
                                     <option value="">Selecione</option>
 
                                 </select>
@@ -50,8 +50,8 @@
 
                             <div class="col-md-3">
                                 <label for="para">Para</label>
-                                <select name="para" id="para" class="form-control">
-                                    <option value="">Selecione o destinatário</option>
+                                <select name="para" id="para" class="form-control" required>
+                                    <option value="">Selecione o destinatário</option >
                                 </select>
                             </div>
 

@@ -25,25 +25,25 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="nome">Nome:</label>
-                                <input type='text' class="form-control" name="nome">
+                                <input type='text' class="form-control" name="nome" required>
                             </div>
                             <div class="col-md-4 mt-3">
                               <label for="endereco">Endereço:</label>
-                                <input type='text' class="form-control" name="endereco">
+                                <input type='text' class="form-control" name="endereco" required>
                             </div>
                              <div class="col-md-4 mt-3">
                                 <label for="bairro">Bairro:</label>
-                                <input type='text'  class="form-control" name="bairro">
+                                <input type='text'  class="form-control" name="bairro" required>
                             </div>
 
                              <div class="col-md-4 mt-3">
                                 <label for="cidade">Cidade:</label>
-                                <input type='text'  class="form-control" name="cidade">
+                                <input type='text'  class="form-control" name="cidade" required>
                             </div>
 
                               <div class="col-md-4 mt-3">
                                 <label for="telefone">Telefone:</label>
-                                <input type='text'  class="form-control" name="telefone">
+                                <input type='text'  class="form-control" name="telefone" required>
                             </div>
 
                         </div>

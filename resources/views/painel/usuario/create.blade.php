@@ -25,12 +25,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="nome">Nome:</label>
-                                <input type='text' class="form-control" name="name">
+                                <input type='text' class="form-control" name="name" required>
                             </div>
 
                                 <div class="col-md-6 mt-3">
                                 <label for="loja">Loja:</label>
-                                <select name="loja_id" class="form-control" id="loja_id">
+                                <select name="loja_id" class="form-control" id="loja_id" required>
                                     <option value="">Selecione a loja</option>
                                     @foreach($lojas as $loja)
                                     <option value="{{$loja->id}}">{{$loja->nome}}</option>
@@ -41,7 +41,7 @@
 
                               <div class="col-md-6 mt-3">
                                 <label for="permissao">Permissão:</label>
-                                <select name="permissao" class="form-control" id="permissao">
+                                <select name="permissao" class="form-control" id="permissao" required>
                                     <option value="">Nivel de permissão</option>
                                     <option value="admin">Adminsitrador</option>
                                     <option value="loja">Loja</option>
@@ -51,11 +51,11 @@
 
                              <div class="col-md-6 mt-3">
                               <label for="email">Email:</label>
-                                <input type='mail' class="form-control" name="email">
+                                <input type='mail' class="form-control" name="email" required>
                             </div>
                              <div class="col-md-6 mt-3">
                                 <label for="password">Senha:</label>
-                                <input type='password'  class="form-control" name="password" id="password">
+                                <input type='password'  class="form-control" name="password" id="password" required>
                             </div>
 
 

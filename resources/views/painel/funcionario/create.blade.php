@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="nome">Nome:</label>
-                                <input type='text' class="form-control" name="nome" id="nome">
+                                <input type='text' class="form-control" name="nome" id="nome" required>
                             </div>
 
                             <div class="col-md-4 mt-3">
