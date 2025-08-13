@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Correspondencia;
 use App\Models\Loja;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class UserController extends Controller
 
 
 
-    return redirect()->route('usuario.usuarios')->with('success, Usuário cadastrado com sucesso');
+    return redirect()->route('usuario.usuarios')->with('success', 'Usuário cadastrado com sucesso');
    }
 
    public function edit($id){
@@ -64,15 +65,25 @@ class UserController extends Controller
 
         $usuario->update($request->all());
 
-        return redirect()->route('usuario.usuarios')->withsuccess('Usuário Editado com sucesso!');
+        return redirect()->route('usuario.usuarios')->with('success','Usuário Editado com sucesso!');
 
    }
 
      public function delteUsuario($id){
 
-    $usuario=User::find($id)->delete();
+    $ci=Correspondencia::where('loja_id', $id)->count();
 
 
-    return redirect()->back()->withsuccess('usuário excluido com sucesso');
+    if($ci >=1){
+
+        return redirect()->back()->with('success','Usuário nao pode ser excluido');
+    }else{
+         $usuario=User::find($id)->delete();
+    }
+
+
+
+
+    return redirect()->back()->with('success','usuário excluido com sucesso');
    }
 }

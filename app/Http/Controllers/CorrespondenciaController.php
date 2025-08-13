@@ -139,7 +139,7 @@ class CorrespondenciaController extends Controller
 
     $ci->update(['status'=>'recebido', 'data_recebimento'=>date('Y-m-d')]);
 
-    return redirect()->route('correspondencias')->withsuccess('Recebimento confirmado');
+    return redirect()->route('correspondencias')->with('success','Recebimento confirmado');
    }
 
    public function delete($id){
@@ -147,12 +147,12 @@ class CorrespondenciaController extends Controller
     $ci=Correspondencia::find($id);
     $ci->delete();
 
-    return redirect()->route('correspondencias')->withsuccess('Corrspondência excluida com sucesso');
+    return redirect()->route('correspondencias')->with('success','Corrspondência excluida com sucesso');
    }
 
    public function deleteItem($id){
     $citem=CorrespondenciaIten::find($id)->delete();
-    return redirect()->back()->withsuccess('Item excluido');
+    return redirect()->back()->with('success','Item excluido');
    }
 
    public function updateCI(Request $request, $id){
@@ -188,7 +188,7 @@ class CorrespondenciaController extends Controller
 
 
         }
-        return redirect()->back()->withsuccess('Correspondencia editada com sucesso');
+        return redirect()->back()->with('success','Correspondencia editada com sucesso');
 
 
 

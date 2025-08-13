@@ -41,7 +41,7 @@ class FuncionarioController extends Controller
 
 
 
-    return redirect()->route('funcionario.funcionarios')->with('success, Funcionario cadastrado com sucesso');
+    return redirect()->route('funcionario.funcionarios')->with('success', 'Funcionario cadastrado com sucesso');
    }
 
    public function edit($id){
@@ -63,7 +63,7 @@ class FuncionarioController extends Controller
 
         $funcionario->update($request->all());
 
-        return redirect()->route('funcionario.funcionarios')->withsuccess('funcionario Editado com sucesso!');
+        return redirect()->route('funcionario.funcionarios')->with('success','funcionario Editado com sucesso!');
 
    }
 
@@ -72,6 +72,6 @@ class FuncionarioController extends Controller
     $funcionario=Funcionario::find($id)->delete();
 
 
-    return redirect()->back()->withsuccess('funcionario excluido com sucesso');
+    return redirect()->back()->with('success','funcionario excluido com sucesso');
    }
 }

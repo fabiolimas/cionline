@@ -41,7 +41,7 @@ class LojaController extends Controller
 
 
 
-    return redirect()->route('lojas')->with('success, Loja cadastrada com sucesso');
+    return redirect()->route('lojas')->with('success', 'Loja cadastrada com sucesso');
    }
 
    public function edit($id){
@@ -63,7 +63,7 @@ class LojaController extends Controller
 
         $loja->update($request->all());
 
-        return redirect()->route('loja.lojas')->withsuccess('Loja Editada com sucesso!');
+        return redirect()->route('loja.lojas')->with('success','Loja Editada com sucesso!');
 
    }
 }
