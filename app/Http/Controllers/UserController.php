@@ -42,7 +42,7 @@ class UserController extends Controller
 
 
 
-    return redirect()->route('usuarios')->with('success, Usuário cadastrado com sucesso');
+    return redirect()->route('usuario.usuarios')->with('success, Usuário cadastrado com sucesso');
    }
 
    public function edit($id){
