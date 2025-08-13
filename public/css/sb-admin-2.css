@@ -54,6 +54,10 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.ultimosEnvios:hover{
+    background:#9396a7 !important;
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
@@ -95,6 +99,7 @@ span.nomeBt {
 .ultimosEnvios {
     border-radius: 5px;
     padding: 6px;
+    transition: .3s;
 }
 
 body {
