@@ -67,4 +67,12 @@ class UserController extends Controller
         return redirect()->route('usuario.usuarios')->withsuccess('Usuário Editado com sucesso!');
 
    }
+
+     public function delteUsuario($id){
+
+    $usuario=User::find($id)->delete();
+
+
+    return redirect()->back()->withsuccess('usuário excluido com sucesso');
+   }
 }

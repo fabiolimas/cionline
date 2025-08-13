@@ -60,6 +60,7 @@ Route::get('/usuario',[UserController::class, 'create'])->name('usuario');
 Route::post('/usuario',[UserController::class, 'store'])->name('store-usuario');
 Route::get('/edit/{id}',[UserController::class, 'edit'])->name('edit-usuario');
 Route::put('/edit/{id}',[UserController::class, 'update'])->name('update-usuario');
+Route::get('/delteUsuario/{id}',[UserController::class, 'delteUsuario'])->name('delete-usuario');
 });
 
 // Funcionario

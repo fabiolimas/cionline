@@ -5,13 +5,13 @@
 
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">CI</h1>
+
 
                     </div>
 
                     <div class="row mb-2 d-flex justify-content-between">
                         <div class="col-xl-3 col-lg-3">
-                        <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i></a>
+                        <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i> Voltar</a>
                         </div>
                            @if ($ci->loja_id == Auth::user()->id)
 
@@ -20,10 +20,12 @@
                            @if($ci->status == 'recebido')
 
                            @else
+                           @can('loja')
                         <div class="col-xl-3 ">
                              <a href="{{route('confirma', $ci->id)}}" class="d-none d-sm-inline-block btn  btn-danger shadow-sm"><i
                                 class="fas fa-check fa-sm text-white-50"></i> Confirmar Recebimento</a>
                         </div>
+                        @endcan
                         @endif
                         @endif
                         </div>

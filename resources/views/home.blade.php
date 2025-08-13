@@ -189,7 +189,8 @@
                     </div>
                     <div class="row">
                         @foreach ($ultimosEnvios as $envs)
-                            <div class="row ultimosEnvios bg-secondary m-2 text-white w-100">
+                            <a href="{{ route('ci', $envs->id) }}" class="nav-link w-100"
+                                                title="Visualizar"><div class="row ultimosEnvios bg-secondary m-2 text-white ">
                                 <div class="col-md-12">
                                     <span class="nci">Nº {{ $envs->id }}</span>
                                 </div>
@@ -225,7 +226,7 @@
                                 @endswitch
                                 <div class="col-md-12">Aos cudiados de: {{ $envs->funcionario_destinatario }}</div>
 
-                            </div>
+                            </div></a>
                         @endforeach
                     </div>
                 </div>
