@@ -69,6 +69,8 @@ Route::get('/funcionario',[FuncionarioController::class, 'create'])->name('funci
 Route::post('/funcionario',[FuncionarioController::class, 'store'])->name('store-funcionario');
 Route::get('/edit/{id}',[FuncionarioController::class, 'edit'])->name('edit-funcionario');
 Route::put('/edit/{id}',[FuncionarioController::class, 'update'])->name('update-funcionario');
+Route::get('/delteFuncionario/{id}',[FuncionarioController::class, 'delteFuncionario'])->name('delete-funcionario');
+
 });
 
 // Relatórios

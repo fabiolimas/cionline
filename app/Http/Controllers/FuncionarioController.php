@@ -66,4 +66,12 @@ class FuncionarioController extends Controller
         return redirect()->route('funcionario.funcionarios')->withsuccess('funcionario Editado com sucesso!');
 
    }
+
+   public function delteFuncionario($id){
+
+    $funcionario=Funcionario::find($id)->delete();
+
+
+    return redirect()->back()->withsuccess('funcionario excluido com sucesso');
+   }
 }

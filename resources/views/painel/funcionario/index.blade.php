@@ -9,8 +9,7 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800"><i class="fa fa-user"></i> Funcionarios</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+
                     </div>
 
                     <div class="row mb-2">
@@ -81,7 +80,7 @@
                                             @endswitch
 
 
-                                            <td><a href="{{route('edit-funcionario', $funcionario->id)}}" class="btn btn-info" title="Visualizar"><i class="fa fa-edit"></i></a> </td>
+                                            <td><a href="{{route('edit-funcionario', $funcionario->id)}}" class="btn btn-info" title="Visualizar"><i class="fa fa-edit"></i></a> <a href="{{route('delete-funcionario', $funcionario->id)}}" class="btn btn-danger" title="Excluir"><i class="fa fa-trash"></i></a> </td>
                                         </tr>
                                         @endforeach
 
