@@ -81,6 +81,7 @@
                             busca:busca
                         },
                         success: function(data) {
+
                             $("#result").html(data);
                         },
                         error: function() {

@@ -1,3 +1,5 @@
+
+@if($correspondencias)
 <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -118,3 +120,8 @@
                             </tbody>
                         </table>
                     </div>
+@else{
+
+    <p class="text-danger">Nenhuma CI encontrada com esse item!</p>
+}
+@endif

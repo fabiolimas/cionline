@@ -22,10 +22,8 @@ class RelatoriosController extends Controller
 
 
 
-$correspondencias=Correspondencia::join('correspondencia_itens','corresondencia_itens.loja_id','correspondencias.id')
-->select('correspondencias.*','correspondencia.descricao as descricao')
-->where('loja_origem', $id)
-->orWhere('descricao','like','%',$request->busca.'%')
+$correspondencias=Correspondencia::where('loja_origem', $id)
+
 ->get();
 
 return view('painel.buscas.buscaPorLoja', compact('correspondencias'));

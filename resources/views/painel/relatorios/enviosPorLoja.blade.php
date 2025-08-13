@@ -43,12 +43,7 @@
                                 </div>
                                 </div>
 
-                                 <div class="col-md-3">
-                                <div class="form-group">
-                                        <label for="item">Item</label>
-                                        <input type="text" name="item" class="form-control" id="item">
 
-                                </div>
                                 </div>
                             </div>
 
