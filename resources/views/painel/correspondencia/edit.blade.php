@@ -9,6 +9,9 @@
         <h1 class="h3 mb-0 text-gray-800"><i class="fa-solid fa-paper-plane"></i> Editar Correspondencia Interna</h1>
 
     </div>
+     <div class="col-xl-3 col-lg-3 mb-3">
+                        <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i> Voltar</a>
+                        </div>
 
     <!-- Content Row -->
     <div class="row">
