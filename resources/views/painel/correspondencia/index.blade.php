@@ -113,9 +113,9 @@
 
                                         <td>{{ $correspondencia->funcionario_origem }}</td>
                                         <td>{{ $correspondencia->funcionario_destinatario }}</td>
-                                        <td>{{ date('Y-m-d H:i', strtotime($correspondencia->data_envio)) }}</td>
+                                        <td>{{ date('Y-m-d H:i', strtotime($correspondencia->created_at)) }}</td>
                                         @if($correspondencia->data_recebimento == null)
-
+                                            <td>-</td>
                                         @else
                                         <td>{{  date('Y-m-d H:i', strtotime($correspondencia->data_recebimento)) }}</td>
                                         @endif
