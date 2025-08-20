@@ -59,14 +59,17 @@ class CorrespondenciaController extends Controller
 
    public function create(Request $request){
 
+
+
     $lojas=Loja::all();
+    $loja=Loja::find(Auth::user()->loja_id);
     $funcionarios=Funcionario::where('status','ativo')
-    ->where('loja_id', $request->origem)
+    ->where('loja_id', $loja->id)
     ->get();
 
 
 
-    return view('painel.correspondencia.create', compact('lojas', 'funcionarios'));
+    return view('painel.correspondencia.create', compact('lojas', 'funcionarios','loja'));
 
    }
 
@@ -137,7 +140,7 @@ class CorrespondenciaController extends Controller
 
     $ci=Correspondencia::find($id);
 
-    $ci->update(['status'=>'recebido', 'data_recebimento'=>date('Y-m-d H:i')]);
+    $ci->update(['status'=>'recebido', 'data_recebimento'=>now()]);
 
     return redirect()->route('correspondencias')->with('success','Recebimento confirmado');
    }

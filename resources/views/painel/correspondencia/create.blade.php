@@ -24,11 +24,9 @@
                             <div class="col-md-3">
                                 <label for="origem">Origem</label>
 
-                                <select name="origem" id="origem" class="form-control" required>
-                                    <option value="">Selecione a loja de origem</option>
-                                    @foreach ($lojas as $loja)
-                                        <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
-                                    @endforeach
+                                <select name="origem" id="origem" class="form-control" required @readonly(true)>
+                                    <option value="{{$loja->id}}">{{$loja->nome}}</option>
+
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -44,6 +42,9 @@
                                 <label for="de">De</label>
                                 <select name="de" id="de" class="form-control" required>
                                     <option value="">Selecione</option>
+                                    @foreach($funcionarios as $funcionario)
+                                        <option value="{{$funcionario->id}}">{{$funcionario->nome}}</option>
+                                    @endforeach
 
                                 </select>
                             </div>
@@ -115,30 +116,30 @@
     });
 });
 
-        $(document).ready(function() {
-            $('#origem').on('change', function() {
-                var lojaId = $(this).val();
+        // $(document).ready(function() {
+        //     $('#origem').on('change', function() {
+        //         var lojaId = $(this).val();
 
-                if (lojaId) {
-                    $.ajax({
-                        url: "{{ url('/funcionarios-por-loja') }}/" + lojaId,
-                        type: "GET",
-                        success: function(data) {
-                            $('#de').empty().append('<option value="">Selecione</option>');
-                            $.each(data, function(key, funcionario) {
-                                $('#de').append('<option value="' + funcionario.id +
-                                    '">' + funcionario.nome + '</option>');
-                            });
-                        },
-                        error: function() {
-                            alert("Erro ao carregar funcionários.");
-                        }
-                    });
-                } else {
-                    $('#de').empty().append('<option value="">Selecione</option>');
-                }
-            });
-        });
+        //         if (lojaId) {
+        //             $.ajax({
+        //                 url: "{{ url('/funcionarios-por-loja') }}/" + lojaId,
+        //                 type: "GET",
+        //                 success: function(data) {
+        //                     $('#de').empty().append('<option value="">Selecione</option>');
+        //                     $.each(data, function(key, funcionario) {
+        //                         $('#de').append('<option value="' + funcionario.id +
+        //                             '">' + funcionario.nome + '</option>');
+        //                     });
+        //                 },
+        //                 error: function() {
+        //                     alert("Erro ao carregar funcionários.");
+        //                 }
+        //             });
+        //         } else {
+        //             $('#de').empty().append('<option value="">Selecione</option>');
+        //         }
+        //     });
+        // });
 
         $(document).ready(function() {
             $('#destino').on('change', function() {
