@@ -20,8 +20,8 @@ class CreateCorrespondenciasTable extends Migration
         $table->integer('loja_destinatario');
         $table->string('funcionario_origem');
         $table->string('funcionario_destinatario');
-        $table->date('data_envio')->nullable();
-        $table->date('data_recebimento')->nullable();
+        $table->dateTime('data_envio')->nullable();
+        $table->dateTime('data_recebimento')->nullable();
         $table->string('status');
         $table->timestamps();
         });
