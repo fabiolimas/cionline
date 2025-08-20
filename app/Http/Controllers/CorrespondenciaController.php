@@ -84,7 +84,7 @@ class CorrespondenciaController extends Controller
     $ci->loja_destinatario=$request->destino;
     $ci->funcionario_origem=$de->nome;
     $ci->funcionario_destinatario=$para->nome;
-    $ci->data_envio=date('Y-m-d');
+    $ci->data_envio=date('Y-m-d H:i');
     $ci->status='aberto';
 
     $ci->save();
@@ -137,7 +137,7 @@ class CorrespondenciaController extends Controller
 
     $ci=Correspondencia::find($id);
 
-    $ci->update(['status'=>'recebido', 'data_recebimento'=>date('Y-m-d')]);
+    $ci->update(['status'=>'recebido', 'data_recebimento'=>date('Y-m-d H:i')]);
 
     return redirect()->route('correspondencias')->with('success','Recebimento confirmado');
    }
