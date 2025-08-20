@@ -84,7 +84,7 @@ class CorrespondenciaController extends Controller
     $ci->loja_destinatario=$request->destino;
     $ci->funcionario_origem=$de->nome;
     $ci->funcionario_destinatario=$para->nome;
-    $ci->data_envio=date('Y-m-d H:i');
+    $ci->data_envio=now();
     $ci->status='aberto';
 
     $ci->save();
