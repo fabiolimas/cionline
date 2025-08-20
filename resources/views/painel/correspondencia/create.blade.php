@@ -60,7 +60,7 @@
                            <div class="row d-flex mt-3">
     <div class="col-md-5 offset-3">
         <button class="btn btn-danger" title="Adicionar item" id="addItem">
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-plus"></i> Adicionar Item
         </button>
     </div>
 </div>
