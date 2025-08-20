@@ -369,8 +369,12 @@
 
                                             <td>{{$correspondencia->funcionario_origem}}</td>
                                              <td>{{$correspondencia->funcionario_destinatario}}</td>
-                                           <td>{{$correspondencia->data_envio}}</td>
-                                            <td>{{$correspondencia->data_recebimento}}</td>
+                                         <td>{{ date('Y-m-d H:i', strtotime($correspondencia->data_envio)) }}</td>
+                                        @if($correspondencia->data_recebimento == null)
+
+                                        @else
+                                        <td>{{  date('Y-m-d H:i', strtotime($correspondencia->data_recebimento)) }}</td>
+                                        @endif
                                             @if($correspondencia->status == 'aberto')
                                             <td class="text-danger">Aberto</td>
                                                 @else
