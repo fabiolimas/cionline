@@ -66,7 +66,7 @@
 </div>
 
 <div class="col-md-12 mt-3" id="itensContainer">
-    <label for="itens">Itens <span class="small text-danger">(detalhe o máximo possivel a descrição de cada item enviado, dados com OS, nº de patrimonio...)</span></label>
+    <label for="itens">Itens <span class="small text-danger">(detalhe o máximo possivel a descrição de cada item enviado, dados como OS, nº de patrimonio...)</span></label>
     <div class="input-group mb-2 ">
         <input type="text" name="itens[]" class="form-control">
         <button class="btn btn-danger removeItem" type="button">
