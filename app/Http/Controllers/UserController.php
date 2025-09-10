@@ -61,9 +61,14 @@ class UserController extends Controller
    public function update(Request $request, $id){
 
         $usuario=User::find($id);
+         $usuario->update($request->all());
+
+        if($request->password){
+            $usuario->update(['password'=>bcrypt($request->password)]);
+        }
 
 
-        $usuario->update($request->all());
+
 
         return redirect()->route('usuario.usuarios')->with('success','Usuário Editado com sucesso!');
 

@@ -13,8 +13,8 @@
     <div class="row mb-2">
         <div class="col-xl-12 col-lg-11">
             @can('loja')
-            <a href="{{ route('correspondencia') }}" class="d-none d-sm-inline-block btn  btn-primary shadow-sm"><i
-                    class="fas fa-plus fa-sm text-white-50"></i> Novo</a>
+                <a href="{{ route('correspondencia') }}" class="d-none d-sm-inline-block btn  btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i> Novo</a>
             @endcan
         </div>
     </div>
@@ -47,8 +47,8 @@
 
                             <tbody>
                                 @foreach ($correspondencias as $correspondencia)
-                                    <tr class="@if($correspondencia->loja_id == Auth::user()->id) bg-light text-dark @else  @endif">
-                                       <td>{{$correspondencia->id}}</td>
+                                    <tr class="@if ($correspondencia->loja_id == Auth::user()->id) bg-light text-dark @else @endif">
+                                        <td>{{ $correspondencia->id }}</td>
 
                                         @switch($correspondencia->loja_origem)
                                             @case (1)
@@ -113,37 +113,37 @@
 
                                         <td>{{ $correspondencia->funcionario_origem }}</td>
                                         <td>{{ $correspondencia->funcionario_destinatario }}</td>
-                                              <td>{{ date('d-m-Y H:i', strtotime($correspondencia->created_at)) }}</td>
-                                        @if($correspondencia->data_recebimento == null)
-                                             <td>-</td>
+                                        <td>{{ date('d-m-Y H:i', strtotime($correspondencia->created_at)) }}</td>
+                                        @if ($correspondencia->data_recebimento == null)
+                                            <td>-</td>
                                         @else
-                                        <td>{{  date('d-m-Y H:i', strtotime($correspondencia->data_recebimento)) }}</td>
+                                            <td>{{ date('d-m-Y H:i', strtotime($correspondencia->data_recebimento)) }}</td>
                                         @endif
-                                        @if($correspondencia->status == 'aberto')
+                                        @if ($correspondencia->status == 'aberto')
                                             <td class="text-danger">Aberto</td>
                                         @else
-                                        <td class="text-success">Recebido</td>
-
+                                            <td class="text-success">Recebido</td>
                                         @endif
                                         <td><a href="{{ route('ci', $correspondencia->id) }}" class="btn btn-info"
                                                 title="Visualizar"><i class="fa fa-eye"></i></a>
 
-                                            @if ($correspondencia->loja_id == Auth::user()->id)
-                                                @if($correspondencia->status == 'recebido')
+                                            @if ($correspondencia->loja_origem == Auth::user()->loja_id)
+                                                @if ($correspondencia->status == 'recebido')
 
+                                                @else
+                                                    <a href="{{ route('editar-ci', $correspondencia->id) }}"
+                                                        class="btn btn-success" title="Editar"><i
+                                                            class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('delete', $correspondencia->id) }}"
+                                                        class="btn btn-danger" title="Excluir"><i
+                                                            class="fa fa-trash"></i></a>
+                                                @endif
                                             @else
-
-                                             <a href="{{route('editar-ci', $correspondencia->id)}}" class="btn btn-success" title="Editar"><i
-                                                        class="fa fa-pencil"></i></a>
-                                            <a href="{{route('delete', $correspondencia->id)}}" class="btn btn-danger" title="Excluir"><i
-                                                        class="fa fa-trash"></i></a>
-                                            @endif
-                                            @else
-                                               @if($correspondencia->status == 'recebido')
-
-                                               @else
-                                                <a href="{{route('confirma', $correspondencia->id)}}" class="btn btn-danger" title="Confirmar"><i
-                                                        class="fa fa-check"></i></a>
+                                                @if ($correspondencia->status == 'recebido')
+                                                @else
+                                                    <a href="{{ route('confirma', $correspondencia->id) }}"
+                                                        class="btn btn-danger" title="Confirmar"><i
+                                                            class="fa fa-check"></i></a>
                                                 @endif
                                         </td>
                                 @endif

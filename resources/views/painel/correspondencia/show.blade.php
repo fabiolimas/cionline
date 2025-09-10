@@ -13,7 +13,7 @@
                         <div class="col-xl-3 col-lg-3">
                         <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i> Voltar</a>
                         </div>
-                           @if ($ci->loja_id == Auth::user()->id)
+                           @if ($ci->loja_origem == Auth::user()->loja_id)
 
 
                            @else
