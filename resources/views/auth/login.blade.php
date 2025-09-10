@@ -82,6 +82,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-6 logo m-3">
                                     <img src="{{ asset('assets/img/ci.png') }}" class="w-100 imglogo" />
+                                    <p class="text-center mt-2">Ci Online</p>
                                 </div>
                             </div>
                         </div>
