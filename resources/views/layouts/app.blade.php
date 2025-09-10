@@ -9,6 +9,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+     <link rel="icon" type="image/png" sizes="16x16"  href="{{ asset('assets/img/favicon.png') }}">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
