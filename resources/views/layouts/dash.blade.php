@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     {{-- <i class="fas fa-laugh-wink"></i> --}}
                 </div>
-                <div class="sidebar-brand-text mx-3"><img src="{{ asset('assets/img/logo.png') }}" class="w-100"></div>
+                <div class="sidebar-brand-text mx-3"><img src="{{ asset('assets/img/ci_pb.png') }}" class="w-50"></div>
             </a>
 
             <!-- Divider -->
