@@ -54,7 +54,13 @@
                                 </div>
                                 <div class="col-md-2"><p><span class="data m-1"> <i class="fa-solid fa-calendar " ></i> {{date('d-m-Y', strtotime($ci->created_at))}}</span></p></div>
                                 <div class="col-md-2">
-                                  <h4>Nº {{$ci->id}}</h4>
+                                  <h5>Nº {{$ci->id}} -
+                                    @if($ci->status == 'recebido')<span class="text-success">{{strtoupper($ci->status)}}</span>
+                                    @else
+                                    <span class="text-danger">{{strtoupper($ci->status)}}</span>
+                                    @endif
+                                </h5>
+
                                 </div>
 
                             </div>
