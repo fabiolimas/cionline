@@ -408,6 +408,8 @@
                                                         class="btn btn-danger" title="Excluir"><i
                                                             class="fa fa-trash"></i></a>
                                                 @endif
+                                            @elseif(Auth::user()->loja_id == null)
+
                                             @else
                                                 @if ($correspondencia->status == 'recebido')
                                                 @else
