@@ -189,73 +189,74 @@
                     </div>
                     <div class="row">
                         @foreach ($ultimosEnvios as $envs)
-                            <a href="{{ route('ci', $envs->id) }}" class="nav-link w-100"
-                                                title="Visualizar"><div class="row ultimosEnvios bg-secondary m-2 text-white ">
-                                <div class="col-md-12">
-                                    <span class="nci">Nº {{ $envs->id }}</span>
+                            <a href="{{ route('ci', $envs->id) }}" class="nav-link w-100" title="Visualizar">
+                                <div class="row ultimosEnvios bg-secondary m-2 text-white ">
+                                    <div class="col-md-12">
+                                        <span class="nci">Nº {{ $envs->id }}</span>
+                                    </div>
+                                    @switch($envs->loja_origem)
+                                        @case (1)
+                                            <div class="col-md-12">De: Jacobina</div>
+                                        @break
+
+                                        @case (2)
+                                            <div class="col-md-12">De: Capim Grosso</div>
+                                        @break
+
+                                        @case (3)
+                                            <div class="col-md-12">De: Senhor do Bonfim</div>
+                                        @break
+
+                                        @case (4)
+                                            <div class="col-md-12">De: Juazeiro</div>
+                                        @break
+
+                                        @case (5)
+                                            <div class="col-md-12">De: Petrolina</div>
+                                        @break
+
+                                        @case (6)
+                                            <div class="col-md-12">De: River</div>
+                                        @break
+
+                                        @case (7)
+                                            <div class="col-md-12">De: Escritório</div>
+                                        @break
+                                    @endswitch
+
+                                    @switch($envs->loja_destinatario)
+                                        @case (1)
+                                            <div class="col-md-12">Para: Jacobina</div>
+                                        @break
+
+                                        @case (2)
+                                            <div class="col-md-12">Para: Capim Grosso</div>
+                                        @break
+
+                                        @case (3)
+                                            <div class="col-md-12">Para: Senhor do Bonfim</div>
+                                        @break
+
+                                        @case (4)
+                                            <div class="col-md-12">Para: Juazeiro</div>
+                                        @break
+
+                                        @case (5)
+                                            <div class="col-md-12">Para: Petrolina</div>
+                                        @break
+
+                                        @case (6)
+                                            <div class="col-md-12">Para: River</div>
+                                        @break
+
+                                        @case (7)
+                                            <div class="col-md-12">Para: Escritório</div>
+                                        @break
+                                    @endswitch
+                                    <div class="col-md-12">Aos cudiados de: {{ $envs->funcionario_destinatario }}</div>
+
                                 </div>
-                                @switch($envs->loja_origem)
-                                    @case (1)
-                                        <div class="col-md-12">De: Jacobina</div>
-                                    @break
-
-                                    @case (2)
-                                        <div class="col-md-12">De: Capim Grosso</div>
-                                    @break
-
-                                    @case (3)
-                                        <div class="col-md-12">De: Senhor do Bonfim</div>
-                                    @break
-
-                                    @case (4)
-                                        <div class="col-md-12">De: Juazeiro</div>
-                                    @break
-
-                                    @case (5)
-                                        <div class="col-md-12">De: Petrolina</div>
-                                    @break
-
-                                    @case (6)
-                                        <div class="col-md-12">De: River</div>
-                                    @break
-
-                                    @case (7)
-                                        <div class="col-md-12">De: Escritório</div>
-                                    @break
-                                @endswitch
-
-                                @switch($envs->loja_destinatario)
-                                    @case (1)
-                                        <div class="col-md-12">Para: Jacobina</div>
-                                    @break
-
-                                    @case (2)
-                                        <div class="col-md-12">Para: Capim Grosso</div>
-                                    @break
-
-                                    @case (3)
-                                        <div class="col-md-12">Para: Senhor do Bonfim</div>
-                                    @break
-
-                                    @case (4)
-                                        <div class="col-md-12">Para: Juazeiro</div>
-                                    @break
-
-                                    @case (5)
-                                        <div class="col-md-12">Para: Petrolina</div>
-                                    @break
-
-                                    @case (6)
-                                        <div class="col-md-12">Para: River</div>
-                                    @break
-
-                                    @case (7)
-                                        <div class="col-md-12">Para: Escritório</div>
-                                    @break
-                                @endswitch
-                                <div class="col-md-12">Aos cudiados de: {{ $envs->funcionario_destinatario }}</div>
-
-                            </div></a>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -272,11 +273,11 @@
                     </div>
                     <div class="row">
                         @can('loja')
-                        <div class="col-xl-5 col-md-6 itemAcessoRapido d-flex text-center">
-                            <a href="{{ route('correspondencia') }}" class="nav-link"><span class="icon bg-success"><i
-                                        class="fa-solid fa-plus text-white"></i></span><span class="nomeBt">Novo
-                                    Envio</span></a>
-                        </div>
+                            <div class="col-xl-5 col-md-6 itemAcessoRapido d-flex text-center">
+                                <a href="{{ route('correspondencia') }}" class="nav-link"><span class="icon bg-success"><i
+                                            class="fa-solid fa-plus text-white"></i></span><span class="nomeBt">Novo
+                                        Envio</span></a>
+                            </div>
                         @endcan
                         <div class="col-xl-5 col-md-6 itemAcessoRapido d-flex text-center">
                             <a href="{{ route('correspondencias') }}" class="nav-link"><span class="icon bg-warning"><i
@@ -301,117 +302,127 @@
 
                     </div>
                     <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                             <th>CI</th>
-                                            <th>Origem</th>
-                                            <th>Destino</th>
-                                            <th>De</th>
-                                            <th>Para</th>
-                                            <th>Data Envio</th>
-                                            <th>Data Receb</th>
-                                            <th>Status</th>
-                                            <th>Ações</th>
-                                        </tr>
-                                    </thead>
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>CI</th>
+                                    <th>Origem</th>
+                                    <th>Destino</th>
+                                    <th>De</th>
+                                    <th>Para</th>
+                                    <th>Data Envio</th>
+                                    <th>Data Receb</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
 
-                                    <tbody>
-                                        @foreach($correspondencias as $correspondencia)
-                                        <tr class="@if($correspondencia->loja_id == Auth::user()->id) bg-light text-dark @else  @endif">
-                                           <td>{{$correspondencia->id}}</td>
-                                            @switch($correspondencia->loja_origem)
+                            <tbody>
+                                @foreach ($correspondencias as $correspondencia)
+                                    <tr class="@if ($correspondencia->loja_id == Auth::user()->id) bg-light text-dark @else @endif">
+                                        <td>{{ $correspondencia->id }}</td>
+                                        @switch($correspondencia->loja_origem)
                                             @case (1)
-                                            <td>Jacobina</td>
+                                                <td>Jacobina</td>
                                             @break
-                                             @case (2)
-                                            <td>Capim Grosso</td>
-                                            @break
-                                             @case (3)
-                                            <td>Senhor do Bonfim</td>
-                                            @break
-                                             @case (4)
-                                            <td>Juazeiro</td>
-                                            @break
-                                             @case (5)
-                                            <td>Petrolina</td>
-                                            @break
-                                             @case (6)
-                                            <td>River</td>
-                                            @break
-                                             @case (7)
-                                            <td>Escritório</td>
-                                            @break
-                                            @endswitch
 
-                                            @switch($correspondencia->loja_destinatario)
+                                            @case (2)
+                                                <td>Capim Grosso</td>
+                                            @break
+
+                                            @case (3)
+                                                <td>Senhor do Bonfim</td>
+                                            @break
+
+                                            @case (4)
+                                                <td>Juazeiro</td>
+                                            @break
+
+                                            @case (5)
+                                                <td>Petrolina</td>
+                                            @break
+
+                                            @case (6)
+                                                <td>River</td>
+                                            @break
+
+                                            @case (7)
+                                                <td>Escritório</td>
+                                            @break
+                                        @endswitch
+
+                                        @switch($correspondencia->loja_destinatario)
                                             @case (1)
-                                            <td>Jacobina</td>
+                                                <td>Jacobina</td>
                                             @break
-                                             @case (2)
-                                            <td>Capim Grosso</td>
+
+                                            @case (2)
+                                                <td>Capim Grosso</td>
                                             @break
-                                             @case (3)
-                                            <td>Senhor do Bonfim</td>
+
+                                            @case (3)
+                                                <td>Senhor do Bonfim</td>
                                             @break
-                                             @case (4)
-                                            <td>Juazeiro</td>
+
+                                            @case (4)
+                                                <td>Juazeiro</td>
                                             @break
-                                             @case (5)
-                                            <td>Petrolina</td>
+
+                                            @case (5)
+                                                <td>Petrolina</td>
                                             @break
-                                             @case (6)
-                                            <td>River</td>
+
+                                            @case (6)
+                                                <td>River</td>
                                             @break
-                                             @case (7)
-                                            <td>Escritório</td>
+
+                                            @case (7)
+                                                <td>Escritório</td>
                                             @break
-                                            @endswitch
+                                        @endswitch
 
 
-                                            <td>{{$correspondencia->funcionario_origem}}</td>
-                                             <td>{{$correspondencia->funcionario_destinatario}}</td>
-                                         <td>{{ date('Y-m-d H:i', strtotime($correspondencia->data_envio)) }}</td>
-                                        @if($correspondencia->data_recebimento == null)
-                                                <td></td>
+                                        <td>{{ $correspondencia->funcionario_origem }}</td>
+                                        <td>{{ $correspondencia->funcionario_destinatario }}</td>
+                                        <td>{{ date('Y-m-d H:i', strtotime($correspondencia->data_envio)) }}</td>
+                                        @if ($correspondencia->data_recebimento == null)
+                                            <td></td>
                                         @else
-                                        <td>{{  date('Y-m-d H:i', strtotime($correspondencia->data_recebimento)) }}</td>
+                                            <td>{{ date('Y-m-d H:i', strtotime($correspondencia->data_recebimento)) }}</td>
                                         @endif
-                                            @if($correspondencia->status == 'aberto')
+                                        @if ($correspondencia->status == 'aberto')
                                             <td class="text-danger">Aberto</td>
-                                                @else
-                                                <td class="text-success">Recebido</td>
-
-                                              @endif
-                                            <td><a href="{{ route('ci', $correspondencia->id) }}" class="btn btn-info"
+                                        @else
+                                            <td class="text-success">Recebido</td>
+                                        @endif
+                                        <td><a href="{{ route('ci', $correspondencia->id) }}" class="btn btn-info"
                                                 title="Visualizar"><i class="fa fa-eye"></i></a>
 
-                                            @if ($correspondencia->loja_id == Auth::user()->id)
-                                            @if($correspondencia->status == 'recebido')
-
+                                            @if ($correspondencia->loja_origem == Auth::user()->loja_origem)
+                                                @if ($correspondencia->status == 'recebido')
+                                                @else
+                                                    <a href="{{ route('editar-ci', $correspondencia->id) }}"
+                                                        class="btn btn-success" title="Editar"><i
+                                                            class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('delete', $correspondencia->id) }}"
+                                                        class="btn btn-danger" title="Excluir"><i
+                                                            class="fa fa-trash"></i></a>
+                                                @endif
                                             @else
-
-                                             <a href="{{route('editar-ci', $correspondencia->id)}}" class="btn btn-success" title="Editar"><i
-                                                        class="fa fa-pencil"></i></a>
-                                            <a href="{{route('delete', $correspondencia->id)}}" class="btn btn-danger" title="Excluir"><i
-                                                        class="fa fa-trash"></i></a>
-                                            @endif
-                                            @else
-                                               @if($correspondencia->status == 'recebido')
-
-                                               @else
-                                                <a href="{{route('confirma', $correspondencia->id)}}" class="btn btn-danger" title="Confirmar"><i
-                                                        class="fa fa-check"></i></a>
+                                                @if ($correspondencia->status == 'recebido')
+                                                @else
+                                                    <a href="{{ route('confirma', $correspondencia->id) }}"
+                                                        class="btn btn-danger" title="Confirmar"><i
+                                                            class="fa fa-check"></i></a>
                                                 @endif
                                         </td>
-                                                @endif
-                                        </tr>
+                                @endif
+                                </tr>
+                                @endforeach
 
-                                        @endforeach
-
-                                    </tbody>
-                                </table>
-                            </div>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
