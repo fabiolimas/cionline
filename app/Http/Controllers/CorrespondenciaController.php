@@ -82,7 +82,7 @@ class CorrespondenciaController extends Controller
 
     $ci=new Correspondencia();
 
-    $ci->loja_id=Auth::user()->id;
+    $ci->loja_id=Auth::user()->loja_id;
     $ci->loja_origem=$request->origem;
     $ci->loja_destinatario=$request->destino;
     $ci->funcionario_origem=$de->nome;
