@@ -47,8 +47,7 @@
                                 <input type='text'  class="form-control" name="telefone" value="{{$loja->telefone}}">
                             </div>
 
-                        </div>
-                        <div class="col-md-4 mt-3">
+                            <div class="col-md-4 mt-3">
                                 <label for="status">Status:</label>
                                 <select name="status" class="form-control" id="status">
                                     @switch($loja->status)
@@ -67,6 +66,9 @@
                                     <option value="inativo">Inativo</option>
                                 </select>
                             </div>
+
+                        </div>
+
                         <div class="row">
 
 
