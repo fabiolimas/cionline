@@ -36,6 +36,7 @@
                                             <th>Nome</th>
                                             <th>Endereço</th>
                                             <th>Telefone</th>
+                                            <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
@@ -45,6 +46,15 @@
                                         <tr>
                                             <td>{{$loja->nome}}</td>
                                             <td>{{$loja->endereco}}</td>
+                                            @switch($loja->status)
+
+                                            @case ('ativo')
+                                             <td class="text-success">Ativa</td>
+                                             @break
+                                             @case('inativo')
+                                               <td class="text-danger">Inativa</td>
+                                             @break
+                                             @endswitch
                                             <td>{{$loja->telefone}}</td>
 
                                             <td><a href="{{route('edit-loja', $loja->id)}}" class="btn btn-info" title="Editar"><i class="fa fa-edit"></i></a></td>
