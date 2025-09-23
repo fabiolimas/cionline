@@ -35,6 +35,7 @@ class LojaController extends Controller
     $loja->bairro = $request->bairro;
     $loja->cidade = $request->cidade;
     $loja->telefone = $request->telefone;
+    $loja->status='ativo';
 
     $loja->save();
 

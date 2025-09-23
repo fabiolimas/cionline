@@ -48,6 +48,25 @@
                             </div>
 
                         </div>
+                        <div class="col-md-4 mt-3">
+                                <label for="status">Status:</label>
+                                <select name="status" class="form-control" id="status">
+                                    @switch($loja->status)
+                                    @case ('ativo')
+
+                                    <option value="ativo">Ativo</option>
+                                    @break;
+
+                                    @case ('inativo')
+                                     <option value="inativo">Inativo</option>
+                                    @break;
+
+                                    @endswitch
+
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                </select>
+                            </div>
                         <div class="row">
 
 
