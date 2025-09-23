@@ -138,13 +138,16 @@
                                                         class="btn btn-danger" title="Excluir"><i
                                                             class="fa fa-trash"></i></a>
                                                 @endif
+                                            @elseif(Auth::user()->loja_id == null)
+
                                             @else
                                                 @if ($correspondencia->status == 'recebido')
+
                                                 @else
                                                     <a href="{{ route('confirma', $correspondencia->id) }}"
                                                         class="btn btn-danger" title="Confirmar"><i
                                                             class="fa fa-check"></i></a>
-                                                @endif
+                                            @endif
                                         </td>
                                 @endif
                                 </tr>
