@@ -61,7 +61,7 @@ class CorrespondenciaController extends Controller
 
 
 
-    $lojas=Loja::all();
+    $lojas=Loja::where('status', 'ativo')->get();
     $loja=Loja::find(Auth::user()->loja_id);
     $funcionarios=Funcionario::where('status','ativo')
     ->where('loja_id', $loja->id)
