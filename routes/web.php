@@ -35,6 +35,7 @@ Route::get('/ci/{id}', [CorrespondenciaController::class, 'show'])->name('ci');
 Route::get('/correspondencias/recebidas', [CorrespondenciaController::class, 'recebidos'])->name('ci-recebido');
 
 Route::get('/correspondencias/enviadas', [CorrespondenciaController::class, 'enviados'])->name('ci-enviado');
+Route::get('/correspondencias/imprimir/{id}', [CorrespondenciaController::class, 'imprimir'])->name('imprimir');
 
 Route::get('confirma/{id}',[CorrespondenciaController::class, 'updateStatus'])->name('confirma');
 Route::get('delete/{id}',[CorrespondenciaController::class, 'delete'])->name('delete');

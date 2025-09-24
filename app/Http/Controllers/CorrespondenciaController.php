@@ -7,7 +7,12 @@ use App\Models\Funcionario;
 use Illuminate\Http\Request;
 use App\Models\Correspondencia;
 use App\Models\CorrespondenciaIten;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+
+    use Barryvdh\DomPDF\Facade\Pdf;
+
+
 
 class CorrespondenciaController extends Controller
 {
@@ -198,4 +203,22 @@ class CorrespondenciaController extends Controller
 
 
    }
+
+public function imprimir($id)
+{
+     ini_set('max_execution_time', 300); // 5 minutos
+    ini_set('memory_limit', '512M'); // aumenta memória
+    // Busca o registro no banco
+    $ci = Correspondencia::findOrFail($id);
+    $ciItens=CorrespondenciaIten::where('correspondencia_id', $ci->id)->get();
+
+    // Passa os dados para a view
+    $pdf = Pdf::loadView('painel.correspondencia.imprimir', ['ci' => $ci, 'ciItens'=>$ciItens
+    ]);
+
+
+
+    // Gera o download
+    return $pdf->stream('correspondencia_'.$id.'.pdf');
+}
 }
