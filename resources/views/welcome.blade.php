@@ -13,7 +13,7 @@
                     <div class="card-body ">
                         <div class="row">
                         <div class="col-md-6">
-                            <form method="get" action="{{ route('home') }}">
+                            <form method="get" action="{{ route('home') }}" class="mt-5">
                                 @csrf
 
 
@@ -22,7 +22,7 @@
                                         class="col-md-4 col-form-label text-md-right">{{ __('Funcionario') }}</label>
 
                                     <div class="col-md-6">
-                           <select class="form-control" name="funcionario">
+                           <select class="form-control" name="funcionario" required>
                             <option value="">Selecionar</option>
                             @foreach($funcionarios as $funcionario)
                                 <option value="{{$funcionario->nome}}">{{$funcionario->nome}}</option>
