@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\CorrespondenciaController;
-use App\Http\Controllers\FuncionarioController;
-use App\Http\Controllers\LojaController;
-use App\Http\Controllers\RelatoriosController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LojaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\RelatoriosController;
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\CorrespondenciaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+// Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/funcionario', [App\Http\Controllers\HomeController::class, 'funcionario'])->name('funcionario');
 
 // Correspondencias
 Route::get('/correspondencias',[CorrespondenciaController::class, 'index'])->name('correspondencias');

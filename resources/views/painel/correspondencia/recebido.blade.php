@@ -14,9 +14,9 @@
 
                     <div class="row mb-2">
                         <div class="col-xl-12 col-lg-11">
-                        <a href="{{route('correspondencia')}}" class="d-none d-sm-inline-block btn  btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i> Novo</a>
-                        </div>
+                        <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i> Voltar</a>
+                <a href="{{ route('correspondencia') }}" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i> Novo</a>
                     </div>
 
                     <!-- Content Row -->
