@@ -105,8 +105,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('correspondencias') }}">Todos</a>
 
-                        <a class="collapse-item" href="{{ route('ci-enviado') }}">Em Aberto</a>
-                        <a class="collapse-item" href="{{ route('ci-recebido') }}">Recebidos</a>
+                        {{-- <a class="collapse-item" href="{{ route('ci-enviado') }}">Em Aberto</a>
+                        <a class="collapse-item" href="{{ route('ci-recebido') }}">Recebidos</a> --}}
 
 
                     </div>

@@ -37,6 +37,7 @@ class CorrespondenciaController extends Controller
 
    public function recebidos(Request $request){
 
+
     if(Auth::user()->role == 'loja'){
     $funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
@@ -46,14 +47,11 @@ class CorrespondenciaController extends Controller
 
     }else{
 
-        $correspondencias=Correspondencia::where('status', 'recebido')
+        $correspondencias=Correspondencia::where('status', 'recebido')->get();
 
-        ->get();
+
 
     }
-
-
-
 
 
     return view('painel.correspondencia.recebido', compact('correspondencias', 'funcionario'));
@@ -79,9 +77,6 @@ class CorrespondenciaController extends Controller
 }
 
    public function create(Request $request){
-
-
-
 
     $loja=Loja::find(Auth::user()->loja_id);
      $lojas=Loja::where('status', 'ativo')
@@ -238,8 +233,6 @@ public function imprimir($id)
     // Passa os dados para a view
     $pdf = Pdf::loadView('painel.correspondencia.imprimir', ['ci' => $ci, 'ciItens'=>$ciItens
     ]);
-
-
 
     // Gera o download
     return $pdf->stream('correspondencia_'.$id.'.pdf');
