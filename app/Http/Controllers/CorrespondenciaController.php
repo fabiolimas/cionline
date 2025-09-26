@@ -127,7 +127,7 @@ class CorrespondenciaController extends Controller
     }
 
 
-    return redirect()->route('correspondencias')->with('success', 'CI Cadastrada com sucesso');
+    return redirect()->route('home')->with('success', 'CI Cadastrada com sucesso');
    }
 
    public function edit($id){
