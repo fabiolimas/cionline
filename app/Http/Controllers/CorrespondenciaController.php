@@ -34,10 +34,10 @@ class CorrespondenciaController extends Controller
    }
 
    public function recebidos(Request $request){
-$funcionario=$request->funcionario;
+    $funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
 
- ->where('funcionario_origem', $funcionario)
+    ->where('funcionario_origem', $funcionario)
     ->get();
 
 

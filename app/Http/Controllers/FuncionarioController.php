@@ -28,9 +28,8 @@ class FuncionarioController extends Controller
 
     $funcionario = new Funcionario();
 
-
-
     $funcionario->nome = $request->nome;
+    $funcionario->email = $request->email;
     $funcionario->loja_id = $request->loja_id;
     $funcionario->status = 'ativo';
 

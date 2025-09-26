@@ -24,9 +24,13 @@
                         @csrf
                         @method('put')
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label for="nome">Nome:</label>
                                 <input type='text' class="form-control" name="nome" value="{{$funcionario->nome}}" id="nome">
+                            </div>
+                             <div class="col-md-6">
+                                <label for="email">Nome:</label>
+                                <input type='mail' class="form-control" name="email" value="{{$funcionario->email}}" id="email">
                             </div>
 
                             <div class="col-md-4 mt-3">
