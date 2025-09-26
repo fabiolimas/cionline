@@ -104,14 +104,15 @@
                 <div id="ci" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('correspondencias') }}">Todos</a>
-                        @can('loja')
-                        <a class="collapse-item" href="{{ route('ci-enviado') }}">Envios</a>
-                        <a class="collapse-item" href="{{ route('ci-recebido') }}">Recebimentos</a>
-                        @endcan
+
+                        <a class="collapse-item" href="{{ route('ci-enviado') }}">Em Aberto</a>
+                        <a class="collapse-item" href="{{ route('ci-recebido') }}">Recebidos</a>
+
 
                     </div>
                 </div>
             </li>
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

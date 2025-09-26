@@ -36,11 +36,22 @@ class CorrespondenciaController extends Controller
    }
 
    public function recebidos(Request $request){
+
+    if(Auth::user()->role == 'loja'){
     $funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
 
     ->where('funcionario_origem', $funcionario)
     ->get();
+
+    }else{
+
+        $correspondencias=Correspondencia::where('status', 'recebido')
+
+        ->get();
+
+    }
+
 
 
 
