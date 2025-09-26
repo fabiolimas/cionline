@@ -6,9 +6,11 @@ use App\Models\Loja;
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
 use App\Models\Correspondencia;
+use App\Mail\CorrespondenciaMail;
 use App\Models\CorrespondenciaIten;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
     use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -105,14 +107,20 @@ class CorrespondenciaController extends Controller
 
     if($ci->save()){
 
+
         foreach($request->itens as $item){
 
-    $ciItens= new CorrespondenciaIten();
+             $ciItens= new CorrespondenciaIten();
 
             $ciItens->descricao= $item;
             $ciItens->correspondencia_id=$ci->id;
 
             $ciItens->save();
+        }
+
+          // Envia o e-mail para o destinatário
+        if (!empty($para->email)) {
+            Mail::to($para->email)->send(new CorrespondenciaMail($ci));
         }
 
 
