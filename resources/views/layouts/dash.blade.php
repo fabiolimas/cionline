@@ -46,12 +46,20 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
+            @can('loja')
             <li class="nav-item active">
+                <a class="nav-link" href="{{ route('home', $funcionario) }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            @endcan
+            @can('admin')
+             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
+            @endcan
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -66,7 +74,28 @@
                     <span>Corresondencia Interna</span></a>
             </li> --}}
 
+            @can('loja')
+
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ci"
+                    aria-expanded="true" aria-controls="ci">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Correspondencia Interna</span>
+                </a>
+                <div id="ci" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('correspondencias', $funcionario) }}">Todos</a>
+                        @can('loja')
+                        <a class="collapse-item" href="{{ route('ci-enviado', $funcionario) }}">Envios</a>
+                        <a class="collapse-item" href="{{ route('ci-recebido', $funcionario) }}">Recebimentos</a>
+                        @endcan
+
+                    </div>
+                </div>
+            </li>
+            @endcan
+                @can('admin')
+                <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ci"
                     aria-expanded="true" aria-controls="ci">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -83,7 +112,6 @@
                     </div>
                 </div>
             </li>
-                @can('admin')
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -161,7 +189,9 @@
                             <!-- Dropdown - Alerts -->
 
                         </li>
-
+                        <li class="nav-item">
+                            <a href="/funcionario" class="nav-link" title="Alternar funcionario"><i class="fa-solid fa-retweet"></i></a>
+                        </li>
 
 
                         <div class="topbar-divider d-none d-sm-block"></div>

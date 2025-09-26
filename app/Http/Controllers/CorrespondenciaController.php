@@ -16,43 +16,46 @@ use Illuminate\Support\Facades\Auth;
 
 class CorrespondenciaController extends Controller
 {
-   public function index(){
+   public function index(Request $request){
 
     if(Auth::user()->role == 'admin'){
         $correspondencias=Correspondencia::all();
 
     }else{
-
+        $funcionario=$request->funcionario;
         $correspondencias=Correspondencia::where('loja_origem', Auth::user()->loja_id)
+        ->where('funcionario_origem', $funcionario)
         ->orWhere('loja_destinatario', Auth::user()->loja_id)->get();
+        return view('painel.correspondencia.index',compact('correspondencias', 'funcionario'));
     }
 
 
     return view('painel.correspondencia.index',compact('correspondencias'));
    }
 
-   public function recebidos(){
-
+   public function recebidos(Request $request){
+$funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
 
+ ->where('funcionario_origem', $funcionario)
     ->get();
 
 
 
 
-    return view('painel.correspondencia.recebido', compact('correspondencias'));
+    return view('painel.correspondencia.recebido', compact('correspondencias', 'funcionario'));
    }
 
-    public function enviados(){
-
+    public function enviados(Request $request){
+        $funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_origem', Auth::user()->loja_id)
-
+        ->where('funcionario_origem', $funcionario)
     ->get();
 
 
 
 
-    return view('painel.correspondencia.enviado', compact('correspondencias'));
+    return view('painel.correspondencia.enviado', compact('correspondencias', 'funcionario'));
    }
 
    public function porLoja($lojaId)
@@ -136,10 +139,11 @@ class CorrespondenciaController extends Controller
    public function show($id){
 
     $ci=Correspondencia::find($id);
+    $funcionario=$ci->funcionario_origem;
 
     $ciItens=CorrespondenciaIten::where('correspondencia_id', $ci->id)->get();
 
-    return view('painel.correspondencia.show', compact('ci', 'ciItens'));
+    return view('painel.correspondencia.show', compact('ci', 'ciItens','funcionario'));
    }
 
    public function updateStatus($id){

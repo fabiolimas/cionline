@@ -30,6 +30,7 @@ class HomeController extends Controller
 
 
         if(Auth::user()->role == 'loja'){
+            $funcionario=$request->funcionario;
              $enviadas=Correspondencia::where('loja_origem', Auth::user()->loja_id)
              ->where('funcionario_origem', $request->funcionario)
              ->count();
@@ -50,6 +51,8 @@ class HomeController extends Controller
         ->where('status','aberto')
         ->orderBy('created_at','desc')
         ->get();
+
+        return view('home', compact('enviadas', 'recebidas','pendente','ultimosEnvios', 'correspondencias','funcionario'));
 
         }else{
 

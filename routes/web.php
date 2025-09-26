@@ -27,19 +27,19 @@ Auth::routes();
 
 
 // Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home/{funcionario?}', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/funcionario', [App\Http\Controllers\HomeController::class, 'funcionario'])->name('funcionario');
 
 // Correspondencias
-Route::get('/correspondencias',[CorrespondenciaController::class, 'index'])->name('correspondencias');
+Route::get('/correspondencias/{funcionario?}',[CorrespondenciaController::class, 'index'])->name('correspondencias');
 Route::get('/correspondencia',[CorrespondenciaController::class, 'create'])->name('correspondencia');
 Route::post('/correspondencia',[CorrespondenciaController::class, 'store'])->name('store-correspondencia');
 Route::get('/funcionarios-por-loja/{lojaId}', [CorrespondenciaController::class, 'porLoja'])->name('funcionarios.porLoja');
 Route::get('/ci/{id}', [CorrespondenciaController::class, 'show'])->name('ci');
-Route::get('/correspondencias/recebidas', [CorrespondenciaController::class, 'recebidos'])->name('ci-recebido');
+Route::get('/correspondencias/recebidas/{funcionario?}', [CorrespondenciaController::class, 'recebidos'])->name('ci-recebido');
 
-Route::get('/correspondencias/enviadas', [CorrespondenciaController::class, 'enviados'])->name('ci-enviado');
+Route::get('/correspondencias/enviadas/{funcionario?}', [CorrespondenciaController::class, 'enviados'])->name('ci-enviado');
 Route::get('/correspondencias/imprimir/{id}', [CorrespondenciaController::class, 'imprimir'])->name('imprimir');
 
 Route::get('confirma/{id}',[CorrespondenciaController::class, 'updateStatus'])->name('confirma');
