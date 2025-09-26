@@ -7,7 +7,7 @@ Você recebeu uma nova correspondência de **{{ $ci->funcionario_origem }}**.
 **Loja Destinatário:** {{ $ci->loja_destinatario }}
 **Data de Envio:** {{ $ci->data_envio->format('d/m/Y H:i') }}
 
-@component('mail::button', ['url'])
+@component('mail::button', ['url' => route('home')])
 Ver Correspondência
 @endcomponent
 
