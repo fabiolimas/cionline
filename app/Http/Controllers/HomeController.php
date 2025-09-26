@@ -31,16 +31,16 @@ class HomeController extends Controller
 
         if(Auth::user()->role == 'loja'){
              $enviadas=Correspondencia::where('loja_origem', Auth::user()->loja_id)
-             ->where('funcionario_destinatario', $request->funcionario)
+             ->where('funcionario_origem', $request->funcionario)
              ->count();
         $recebidas=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
-        ->where('funcionario_destinatario', $request->funcionario)
+        ->where('funcionario_origem', $request->funcionario)
         ->where('status','recebido')->count();
          $pendente=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
-         ->where('funcionario_destinatario', $request->funcionario)
+         ->where('funcionario_origem', $request->funcionario)
         ->where('status','aberto')->count();
         $ultimosEnvios=Correspondencia::where('loja_origem', Auth::user()->loja_id)
-        ->where('funcionario_destinatario', $request->funcionario)
+        ->where('funcionario_origem', $request->funcionario)
         ->limit(4)
         ->orderBy('created_at','desc')
         ->get();
