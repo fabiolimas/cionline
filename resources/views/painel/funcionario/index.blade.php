@@ -34,6 +34,7 @@
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
+                                            <th>E-mail</th>
                                             <th>Loja</th>
                                             <th>Status</th>
                                             <th>Ações</th>
@@ -44,6 +45,7 @@
                                         @foreach($funcionarios as $funcionario)
                                         <tr>
                                             <td>{{$funcionario->nome}}</td>
+                                            <td>{{$funcionario->email}}</td>
 
                                             @switch($funcionario->loja_id)
                                             @case (1)
