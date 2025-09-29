@@ -73,7 +73,7 @@
     <label for="itens">Itens</label>
     @foreach($ciItens as $citem)
     <div class="input-group mb-2 ">
-        <input type="text" name="itens[]" class="form-control" value="{{$citem->descricao}}" readonly>
+        <input type="text" name="itens[]" class="form-control" value="{{$citem->descricao}}">
         <a href="{{route('delete-item', $citem->id)}}" class="btn btn-danger removeItem" type="button">
             <i class="fa-solid fa-trash"></i>
         </a>
