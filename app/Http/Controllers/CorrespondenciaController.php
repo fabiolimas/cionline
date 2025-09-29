@@ -177,7 +177,7 @@ class CorrespondenciaController extends Controller
     $ci=Correspondencia::find($id);
     $ci->delete();
 
-    return redirect()->route('correspondencias')->with('success','Corrspondência excluida com sucesso');
+    return redirect()->route('correspondencias', $ci->funcionari_origem)->with('success','Corrspondência excluida com sucesso');
    }
 
    public function deleteItem($id){
