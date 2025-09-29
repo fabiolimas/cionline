@@ -133,10 +133,11 @@ class CorrespondenciaController extends Controller
     }
 
 
-    return redirect()->route('home')->with('success', 'CI Cadastrada com sucesso');
+    return redirect()->route('home',$de->nome)->with('success', 'CI Cadastrada com sucesso');
    }
 
    public function edit($id){
+
     $ci=Correspondencia::find($id);
     $lojad=Loja::find($ci->loja_destinatario);
     $lojao=Loja::find($ci->loja_origem);
@@ -144,10 +145,11 @@ class CorrespondenciaController extends Controller
     $de=Funcionario::where('nome','like','%'.$ci->funcionario_origem.'%')->first();
     $para=Funcionario::where('nome','like','%'.$ci->funcionario_destinatario.'%')->first();
     $ciItens=CorrespondenciaIten::where('correspondencia_id', $ci->id)->get();
+    $funcionario=$ci->funcionario_origem;
 
 
 
-    return view('painel.correspondencia.edit', compact('ci','lojad','lojao','lojas','ciItens','de','para'));
+    return view('painel.correspondencia.edit', compact('ci','lojad','lojao','lojas','ciItens','de','para', 'funcionario'));
    }
 
    public function show($id){
