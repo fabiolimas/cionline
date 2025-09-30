@@ -26,7 +26,9 @@ class CorrespondenciaController extends Controller
     }else{
         $funcionario=$request->funcionario;
         $correspondencias=Correspondencia::where('loja_origem', Auth::user()->loja_id)
+        ->orWhere('loja_destinatario', Auth::user()->loja_id)
         ->where('funcionario_origem', $funcionario)
+        ->orWhere('funcionario_destinatario', $funcionario)
         ->get();
         return view('painel.correspondencia.index',compact('correspondencias', 'funcionario'));
     }
@@ -169,7 +171,7 @@ class CorrespondenciaController extends Controller
 
     $ci->update(['status'=>'recebido', 'data_recebimento'=>now()]);
 
-    return redirect()->route('correspondencias')->with('success','Recebimento confirmado');
+    return redirect()->route('correspondencias', $ci->funcionario_destinatario)->with('success','Recebimento confirmado');
    }
 
    public function delete($id){
