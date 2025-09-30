@@ -68,7 +68,7 @@
 <script>
 
  $(document).ready(function() {
-            $('#item').on('change', function() {
+            $('#item').on('keyup', function() {
                 var busca = $('#item').val();
 
 
