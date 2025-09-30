@@ -44,7 +44,8 @@ class CorrespondenciaController extends Controller
     $funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_destinatario', Auth::user()->loja_id)
 
-    ->where('funcionario_origem', $funcionario)
+    ->where('funcionario_destinatario', $funcionario)
+    ->where('status', 'recebido')
     ->get();
 
     }else{
