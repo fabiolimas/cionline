@@ -84,7 +84,9 @@ Route::get('/delteFuncionario/{id}',[FuncionarioController::class, 'delteFuncion
 Route::prefix('relatorio')->group(function(){
 Route::get('/envios-por-loja',[RelatoriosController::class, 'enviosPorLoja'])->name('relatorio.envios-por-loja');
 Route::get('/envios-por-item',[RelatoriosController::class, 'enviosPorItem'])->name('envios-por-item');
+Route::get('/pendencia-por-loja',[RelatoriosController::class, 'pedidosAbertos'])->name('pendencia-por-loja');
 Route::get('buscaPorLoja/{id}',[RelatoriosController::class, 'buscaCi'])->name('busca.envios-por-loja');
+Route::get('pendentePorLoja/{id}',[RelatoriosController::class, 'pendenciaPorLoja'])->name('busca.pendente-loja');
 Route::get('buscaPorItem',[RelatoriosController::class, 'buscaItem'])->name('busca-por-item');
 
 });

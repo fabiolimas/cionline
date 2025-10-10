@@ -140,6 +140,7 @@
 
                         <a class="collapse-item" href="{{ route('relatorio.envios-por-loja') }}">Envios por loja</a>
                         <a class="collapse-item" href="{{ route('envios-por-item') }}">Envios por Item</a>
+                        <a class="collapse-item" href="{{ route('pendencia-por-loja') }}">Pendencias por loja</a>
 
                     </div>
                 </div>
