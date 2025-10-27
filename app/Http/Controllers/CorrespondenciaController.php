@@ -21,7 +21,9 @@ class CorrespondenciaController extends Controller
    public function index(Request $request){
 
     if(Auth::user()->role == 'admin'){
-        $correspondencias=Correspondencia::all();
+        $correspondencias=Correspondencia::orderBy('id','desc')
+        ->paginate(20);
+
 
     }else{
         $funcionario=$request->funcionario;
@@ -29,7 +31,8 @@ class CorrespondenciaController extends Controller
         ->Where('loja_destinatario', Auth::user()->loja_id)
         ->where('funcionario_origem', $funcionario)
         ->orWhere('funcionario_destinatario', $funcionario)
-        ->get();
+        ->orderBy('id','desc')
+        ->paginate(20);
         return view('painel.correspondencia.index',compact('correspondencias', 'funcionario'));
     }
 

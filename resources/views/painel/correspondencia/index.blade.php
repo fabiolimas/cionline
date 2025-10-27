@@ -156,6 +156,7 @@
 
                             </tbody>
                         </table>
+                        {{ $correspondencias->links() }}
                     </div>
                 </div>
             </div>
