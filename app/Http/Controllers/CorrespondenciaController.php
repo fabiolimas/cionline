@@ -172,7 +172,7 @@ class CorrespondenciaController extends Controller
 
     $ci->update(['status'=>'recebido', 'data_recebimento'=>now()]);
 
-    return redirect()->route('correspondencias', $ci->funcionario_destinatario)->with('success','Recebimento confirmado');
+    return redirect()->route('home', $ci->funcionario_destinatario)->with('success','Recebimento confirmado');
    }
 
    public function delete($id){
