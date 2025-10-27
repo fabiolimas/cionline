@@ -24,7 +24,7 @@ class RelatoriosController extends Controller
 
 $correspondencias=Correspondencia::where('loja_origem', $id)
 
-->paginate(20);
+->get();
 
 return view('painel.buscas.buscaPorLoja', compact('correspondencias'));
   }
@@ -65,7 +65,7 @@ return view('painel.buscas.buscaPorItem', compact('correspondencias'));
 $correspondencias=Correspondencia::where('loja_destinatario', $id)
 ->where('status', 'aberto')
 
-->paginate(15);
+->get();
 
 return view('painel.buscas.pendenciaPorLoja', compact('correspondencias'));
   }
