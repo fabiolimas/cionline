@@ -120,4 +120,5 @@
 
         </tbody>
     </table>
+      {{ $correspondencias->links() }}
 </div>
