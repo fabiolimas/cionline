@@ -22,7 +22,7 @@ class CorrespondenciaController extends Controller
 
     if(Auth::user()->role == 'admin'){
         $correspondencias=Correspondencia::orderBy('id','desc')
-        ->paginate(20);
+        ->paginate(15);
 
 
     }else{
@@ -32,7 +32,7 @@ class CorrespondenciaController extends Controller
         ->where('funcionario_origem', $funcionario)
         ->orWhere('funcionario_destinatario', $funcionario)
         ->orderBy('id','desc')
-        ->paginate(20);
+        ->paginate(15);
         return view('painel.correspondencia.index',compact('correspondencias', 'funcionario'));
     }
 
