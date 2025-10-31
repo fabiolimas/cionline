@@ -12,7 +12,7 @@
                     <div class="row mb-2 d-flex justify-content-between">
                         <div class="col-xl-3 col-lg-3">
                         <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i> Voltar</a>
-                        <a href="{{route('imprimir', $ci->id)}}" target="_blank" title="Imprimir" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i class="fa-solid fa-print"></i> Imprimir</a>
+                        {{-- <a href="{{route('imprimir', $ci->id)}}" target="_blank" title="Imprimir" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i class="fa-solid fa-print"></i> Imprimir</a> --}}
                         </div>
                            @if ($ci->loja_origem == Auth::user()->loja_id)
 
