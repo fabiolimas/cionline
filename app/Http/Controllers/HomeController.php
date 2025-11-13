@@ -82,7 +82,9 @@ class HomeController extends Controller
 
        }else{
 
-          $funcionarios=Funcionario::where('loja_id', Auth::user()->loja_id)->get();
+          $funcionarios=Funcionario::where('loja_id', Auth::user()->loja_id)
+          ->where('status','ativo')
+          ->get();
 
 
         return view('welcome', compact('funcionarios'));
