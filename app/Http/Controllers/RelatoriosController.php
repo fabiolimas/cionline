@@ -11,23 +11,40 @@ class RelatoriosController extends Controller
 {
   public function enviosPorLoja(Request $request){
     $lojas=Loja::all();
+    $funcionario=$request->funcionario;
 
 
 
 
 
-    return view ('painel.relatorios.enviosPorLoja', compact('lojas'));
+
+    return view ('painel.relatorios.enviosPorLoja', compact('lojas','funcionario'));
   }
 
   public function buscaCi(Request $request, $id){
 
 
+  if(Auth::user()->role == 'admin'){
+    $correspondencias=Correspondencia::where('loja_origem', $id)
+
+->get();
+return view('painel.buscas.buscaPorLoja', compact('correspondencias'));
+  }else{
+    $funcionario=$request->funcionario;
 
 $correspondencias=Correspondencia::where('loja_origem', $id)
+->where('funcionario_destinatario', $funcionario )
 
 ->get();
 
-return view('painel.buscas.buscaPorLoja', compact('correspondencias'));
+
+
+return view('painel.buscas.buscaPorLoja', compact('correspondencias','funcionario'));
+  }
+
+
+
+
   }
 
 

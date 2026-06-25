@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Envios Por Loja</h1>
 
@@ -77,12 +79,13 @@
  $(document).ready(function() {
             $('#loja').on('change', function() {
                 var lojaId = $('#loja').val();
+                var funcionario='{{$funcionario}}';
 
 
 
                 if (lojaId) {
                     $.ajax({
-                        url: "{{ url('relatorio/buscaPorLoja') }}/"+lojaId,
+                        url: "{{ url('relatorio/buscaPorLoja') }}/"+lojaId+"/"+funcionario,
                         type: "GET",
                         data:{
 

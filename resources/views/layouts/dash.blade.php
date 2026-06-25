@@ -141,7 +141,9 @@
 
                        @can('admin') <a class="collapse-item" href="{{ route('relatorio.envios-por-loja') }}">Envios por loja</a>@endcan
                      @can('loja')
+                       <a class="collapse-item" href="{{ route('relatorio.envios-por-loja',$funcionario) }}">Envios por loja</a>
                        <a class="collapse-item" href="{{ route('envios-por-item', $funcionario) }}">Envios por Item</a>
+
                        @endcan
                        @can('admin')
                        <a class="collapse-item" href="{{ route('envios-por-item') }}">Envios por Item</a>
