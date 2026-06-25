@@ -253,7 +253,7 @@
                                             <div class="col-md-12">Para: Escritório</div>
                                         @break
                                     @endswitch
-                                    <div class="col-md-12">Aos cudiados de: {{ $envs->funcionario_destinatario }}</div>
+                                    <div class="col-md-12">Aos cuidados de: {{ $envs->funcionario_destinatario }}</div>
 
                                 </div>
                             </a>
