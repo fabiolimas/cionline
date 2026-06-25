@@ -49,11 +49,14 @@ class CorrespondenciaController extends Controller
 
     ->where('funcionario_destinatario', $funcionario)
     ->where('status', 'recebido')
+     ->orderBy('id','desc')
     ->get();
 
     }else{
 
-        $correspondencias=Correspondencia::where('status', 'recebido')->get();
+        $correspondencias=Correspondencia::where('status', 'recebido')
+         ->orderBy('id','desc')
+        ->get();
 
 
 
@@ -67,6 +70,7 @@ class CorrespondenciaController extends Controller
         $funcionario=$request->funcionario;
     $correspondencias=Correspondencia::where('loja_origem', Auth::user()->loja_id)
         ->where('funcionario_origem', $funcionario)
+         ->orderBy('id','desc')
     ->get();
 
 

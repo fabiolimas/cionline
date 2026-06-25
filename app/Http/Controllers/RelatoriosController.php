@@ -13,11 +13,6 @@ class RelatoriosController extends Controller
     $lojas=Loja::all();
     $funcionario=$request->funcionario;
 
-
-
-
-
-
     return view ('painel.relatorios.enviosPorLoja', compact('lojas','funcionario'));
   }
 
@@ -26,6 +21,7 @@ class RelatoriosController extends Controller
 
   if(Auth::user()->role == 'admin'){
     $correspondencias=Correspondencia::where('loja_origem', $id)
+    ->orderBy('id','DESC')
 
 ->get();
 return view('painel.buscas.buscaPorLoja', compact('correspondencias'));
@@ -34,7 +30,7 @@ return view('painel.buscas.buscaPorLoja', compact('correspondencias'));
 
 $correspondencias=Correspondencia::where('loja_origem', $id)
 ->where('funcionario_destinatario', $funcionario )
-
+ ->orderBy('id','DESC')
 ->get();
 
 
@@ -72,6 +68,7 @@ $correspondencias=Correspondencia::join('correspondencia_itens','correspondencia
 ->select('correspondencias.*','correspondencia_itens.descricao')
 
 ->Where('correspondencia_itens.descricao','like','%'.$request->busca.'%')
+ ->orderBy('correspondencias.id','DESC')
 ->get();
 return view('painel.buscas.buscaPorItem', compact('correspondencias'));
 }else{
@@ -81,6 +78,7 @@ $correspondencias=Correspondencia::join('correspondencia_itens','correspondencia
 ->select('correspondencias.*','correspondencia_itens.descricao')
 ->where('correspondencias.funcionario_destinatario', $funcionario)
 ->Where('correspondencia_itens.descricao','like','%'.$request->busca.'%')
+ ->orderBy('correspondencias.id','DESC')
 
 ->get();
 
