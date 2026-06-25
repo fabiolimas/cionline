@@ -129,6 +129,7 @@
                     </div>
                 </div>
             </li>
+             @endcan
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#relatorios"
                     aria-expanded="true" aria-controls="relatorios">
@@ -138,14 +139,19 @@
                 <div id="relatorios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="{{ route('relatorio.envios-por-loja') }}">Envios por loja</a>
-                        <a class="collapse-item" href="{{ route('envios-por-item') }}">Envios por Item</a>
-                        <a class="collapse-item" href="{{ route('pendencia-por-loja') }}">Pendencias por loja</a>
+                       @can('admin') <a class="collapse-item" href="{{ route('relatorio.envios-por-loja') }}">Envios por loja</a>@endcan
+                     @can('loja')
+                       <a class="collapse-item" href="{{ route('envios-por-item', $funcionario) }}">Envios por Item</a>
+                       @endcan
+                       @can('admin')
+                       <a class="collapse-item" href="{{ route('envios-por-item') }}">Envios por Item</a>
+
+                        <a class="collapse-item" href="{{ route('pendencia-por-loja') }}">Pendencias por loja</a>@endcan
 
                     </div>
                 </div>
             </li>
-            @endcan
+
 
 
 

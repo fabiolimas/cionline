@@ -24,7 +24,7 @@
             <div class="card shadow mb-4">
 
                 <div class="card-body">
-                        <form class="form" action="" method="post">
+                        <form class="form" action="">
                             <div class="row">
                                 <h5><i class="fa-solid fa-filter"></i> Filtros</h5><br>
                             </div>
@@ -68,17 +68,17 @@
 <script>
 
  $(document).ready(function() {
+
             $('#item').on('keyup', function() {
                 var busca = $('#item').val();
 
-
-
                 if (busca) {
                     $.ajax({
-                        url: "{{ url('relatorio/buscaPorItem') }}/",
+                        url: "{{ url('relatorio/buscaPorItem/') }}/",
                         type: "GET",
                         data:{
-                            busca:busca
+                            busca:busca,
+                            funcionario: '{{$funcionario}}',
                         },
                         success: function(data) {
 

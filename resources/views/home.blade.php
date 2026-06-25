@@ -282,14 +282,14 @@
                             <div class="col-xl-5 col-md-6 itemAcessoRapido d-flex text-center">
                             <a href="{{ route('correspondencias', $funcionario) }}" class="nav-link"><span class="icon bg-warning"><i
                                         class="fa-solid fa-chart-simple text-white"></i></span><span
-                                    class="nomeBt">Histórico de envios</span></a>
+                                    class="nomeBt">Histórico</span></a>
                         </div>
                         @endcan
                         @can('admin')
                         <div class="col-xl-5 col-md-6 itemAcessoRapido d-flex text-center">
                             <a href="{{ route('correspondencias') }}" class="nav-link"><span class="icon bg-warning"><i
                                         class="fa-solid fa-chart-simple text-white"></i></span><span
-                                    class="nomeBt">Histórico de envios</span></a>
+                                    class="nomeBt">Histórico</span></a>
                         </div>
                         @endcan
                     </div>

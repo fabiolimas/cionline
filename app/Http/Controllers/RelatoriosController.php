@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Correspondencia;
 use App\Models\Loja;
 use Illuminate\Http\Request;
-use App\Models\Correspondencia;
+use Illuminate\Support\Facades\Auth;
 
 class RelatoriosController extends Controller
 {
@@ -32,28 +33,49 @@ return view('painel.buscas.buscaPorLoja', compact('correspondencias'));
 
    public function enviosPorItem(Request $request){
 
+   $funcionario=$request->funcionario;
 
-    return view ('painel.relatorios.enviosPorItem');
+
+    return view ('painel.relatorios.enviosPorItem', compact('funcionario'));
   }
 
   public function pedidosAbertos(Request $request){
 
  $lojas=Loja::all();
+
     return view ('painel.relatorios.pendentePorLoja', compact('lojas'));
   }
 
 
   public function buscaItem(Request $request){
 
-
+if(Auth::user()->role == 'admin'){
 
 $correspondencias=Correspondencia::join('correspondencia_itens','correspondencia_itens.correspondencia_id','correspondencias.id')
 ->select('correspondencias.*','correspondencia_itens.descricao')
 
 ->Where('correspondencia_itens.descricao','like','%'.$request->busca.'%')
 ->get();
-
 return view('painel.buscas.buscaPorItem', compact('correspondencias'));
+}else{
+
+$funcionario=$request->funcionario;
+$correspondencias=Correspondencia::join('correspondencia_itens','correspondencia_itens.correspondencia_id','correspondencias.id')
+->select('correspondencias.*','correspondencia_itens.descricao')
+->where('correspondencias.funcionario_destinatario', $funcionario)
+->Where('correspondencia_itens.descricao','like','%'.$request->busca.'%')
+
+->get();
+
+
+
+
+return view('painel.buscas.buscaPorItem', compact('correspondencias','funcionario'));
+
+
+}
+
+
   }
 
 
@@ -66,6 +88,7 @@ $correspondencias=Correspondencia::where('loja_destinatario', $id)
 ->where('status', 'aberto')
 
 ->get();
+
 
 return view('painel.buscas.pendenciaPorLoja', compact('correspondencias'));
   }

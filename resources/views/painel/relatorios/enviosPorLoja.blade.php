@@ -24,7 +24,7 @@
             <div class="card shadow mb-4">
 
                 <div class="card-body">
-                        <form class="form" action="" method="post">
+                        <form class="form" action="">
                             <div class="row">
                                 <h5><i class="fa-solid fa-filter"></i> Filtros</h5><br>
                             </div>
