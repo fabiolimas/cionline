@@ -33,7 +33,7 @@ Route::get('/funcionario', [App\Http\Controllers\HomeController::class, 'funcion
 
 // Correspondencias
 Route::get('/correspondencias/{funcionario?}',[CorrespondenciaController::class, 'index'])->name('correspondencias');
-Route::get('/correspondencia',[CorrespondenciaController::class, 'create'])->name('correspondencia');
+Route::get('/correspondencia/{funcionario?}',[CorrespondenciaController::class, 'create'])->name('correspondencia');
 Route::post('/correspondencia',[CorrespondenciaController::class, 'store'])->name('store-correspondencia');
 Route::get('/funcionarios-por-loja/{lojaId}', [CorrespondenciaController::class, 'porLoja'])->name('funcionarios.porLoja');
 Route::get('/ci/{id}', [CorrespondenciaController::class, 'show'])->name('ci');

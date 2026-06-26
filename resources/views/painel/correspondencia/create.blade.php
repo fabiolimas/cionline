@@ -42,11 +42,11 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="de">De</label>
-                                <select name="de" id="de" class="form-control" required>
-                                    <option value="">Selecione</option>
-                                    @foreach($funcionarios as $funcionario)
-                                        <option value="{{$funcionario->id}}">{{$funcionario->nome}}</option>
-                                    @endforeach
+                                <select name="de" id="de" class="form-control" @readonly(true)>
+                                    <option value="{{$funcionario_logado->id}}">{{$funcionario_logado->nome}}</option>
+                                    {{-- @foreach($funcionarios as $func)
+                                        <option value="{{$func->id}}">{{$func->nome}}</option>
+                                    @endforeach --}}
 
                                 </select>
                             </div>

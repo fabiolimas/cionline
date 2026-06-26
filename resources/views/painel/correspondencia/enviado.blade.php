@@ -1,35 +1,36 @@
 @extends('layouts.dash')
 
 @section('head')
-<link href="{{asset('datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Correspondencias Enviadas</h1>
+
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-xl-12 col-lg-11">
+            <a href="#" onclick="history.back()" title="voltar"
+                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i>
+                Voltar</a>
+            <a href="{{ route('correspondencia', $funcionario) }}"
+                class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i
+                    class="fas fa-plus fa-sm text-white-50"></i> Novo</a>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
 
 
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Correspondencias Enviadas</h1>
-
-                    </div>
-
-                    <div class="row mb-2">
-                        <div class="col-xl-12 col-lg-11">
-                        <a href="#" onclick="history.back()" title="voltar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa-solid fa-backward-step"></i> Voltar</a>
-                <a href="{{ route('correspondencia') }}" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i
-                        class="fas fa-plus fa-sm text-white-50"></i> Novo</a>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-
-                                <div class="col-xl-12 col-lg-11">
-                           <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Enviadas</h6>
-                        </div>
-                        <div class="card-body">
+        <div class="col-xl-12 col-lg-11">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Enviadas</h6>
+                </div>
+                <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -130,7 +131,6 @@
 
                                             @if ($correspondencia->loja_origem == Auth::user()->loja_id)
                                                 @if ($correspondencia->status == 'recebido')
-
                                                 @else
                                                     <a href="{{ route('editar-ci', $correspondencia->id) }}"
                                                         class="btn btn-success" title="Editar"><i
@@ -140,15 +140,13 @@
                                                             class="fa fa-trash"></i></a>
                                                 @endif
                                             @elseif(Auth::user()->loja_id == null)
-
                                             @else
                                                 @if ($correspondencia->status == 'recebido')
-
                                                 @else
                                                     <a href="{{ route('confirma', $correspondencia->id) }}"
                                                         class="btn btn-danger" title="Confirmar"><i
                                                             class="fa fa-check"></i></a>
-                                            @endif
+                                                @endif
                                         </td>
                                 @endif
                                 </tr>
@@ -158,12 +156,11 @@
                         </table>
                     </div>
                 </div>
-                    </div>
-                        </div>
+            </div>
+        </div>
 
-
-                    </div>
 
     </div>
 
+    </div>
 @endsection

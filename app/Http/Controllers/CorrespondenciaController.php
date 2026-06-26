@@ -88,6 +88,8 @@ class CorrespondenciaController extends Controller
 
    public function create(Request $request){
 
+    $funcionario=$request->funcionario;
+
     $loja=Loja::find(Auth::user()->loja_id);
      $lojas=Loja::where('status', 'ativo')
      ->where('id','!=',$loja->id)->get();
@@ -95,9 +97,11 @@ class CorrespondenciaController extends Controller
     ->where('loja_id', $loja->id)
     ->get();
 
+    $funcionario_logado=Funcionario::where('nome',$request->funcionario)->first();
 
 
-    return view('painel.correspondencia.create', compact('lojas', 'funcionarios','loja'));
+
+    return view('painel.correspondencia.create', compact('lojas', 'funcionarios','loja','funcionario_logado','funcionario'));
 
    }
 

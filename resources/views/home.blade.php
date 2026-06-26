@@ -274,7 +274,7 @@
                     <div class="row">
                         @can('loja')
                             <div class="col-xl-5 col-md-6 itemAcessoRapido d-flex text-center">
-                                <a href="{{ route('correspondencia') }}" class="nav-link"><span class="icon bg-success"><i
+                                <a href="{{ route('correspondencia', $funcionario) }}" class="nav-link"><span class="icon bg-success"><i
                                             class="fa-solid fa-plus text-white"></i></span><span class="nomeBt">Novo
                                         Envio</span></a>
                             </div>
