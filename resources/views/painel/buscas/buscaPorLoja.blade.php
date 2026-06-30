@@ -97,7 +97,7 @@
                     <td><a href="{{ route('ci', $correspondencia->id) }}" class="btn btn-info" title="Visualizar"><i
                                 class="fa fa-eye"></i></a>
 
-                        @if ($correspondencia->loja_origem == Auth::user()->loja_id)
+                        @if ($correspondencia->loja_origem == Auth::user()->loja_id || Auth::user()->role == 'admin')
                             @if ($correspondencia->status == 'recebido')
                             @else
                                 <a href="{{ route('editar-ci', $correspondencia->id) }}" class="btn btn-success"
