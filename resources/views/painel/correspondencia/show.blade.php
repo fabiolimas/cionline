@@ -18,11 +18,13 @@
 
 
                            @else
-                           @if($ci->status == 'recebido')
+                           @if($ci->status == 'recebido' || $ci->status == 'recusado')
 
                            @else
                            @can('loja')
-                        <div class="col-xl-3 ">
+
+                        <div class="col-xl-4 ">
+                            <a href="{{route('recusa', $ci->id)}}" class="d-none d-sm-inline-block btn  btn-warning shadow-sm"><i class="fa-solid fa-ban fa-sm text-white-50"></i> Recusar</a>
                              <a href="{{route('confirma', $ci->id)}}" class="d-none d-sm-inline-block btn  btn-danger shadow-sm"><i
                                 class="fas fa-check fa-sm text-white-50"></i> Confirmar Recebimento</a>
                         </div>

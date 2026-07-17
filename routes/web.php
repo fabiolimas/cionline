@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LojaController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\RelatoriosController;
-use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CorrespondenciaController;
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\LojaController;
+use App\Http\Controllers\RelatoriosController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::get('/correspondencias/enviadas/{funcionario?}', [CorrespondenciaControll
 Route::get('/correspondencias/imprimir/{id}', [CorrespondenciaController::class, 'imprimir'])->name('imprimir');
 
 Route::get('confirma/{id}',[CorrespondenciaController::class, 'updateStatus'])->name('confirma');
+Route::get('recusa/{id}',[CorrespondenciaController::class, 'recusaCi'])->name('recusa');
 Route::get('delete/{id}',[CorrespondenciaController::class, 'delete'])->name('delete');
 Route::get('deleteItem/{id}',[CorrespondenciaController::class, 'deleteItem'])->name('delete-item');
 Route::get('edit/{id}',[CorrespondenciaController::class, 'edit'])->name('editar-ci');

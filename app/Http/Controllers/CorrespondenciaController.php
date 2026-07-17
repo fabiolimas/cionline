@@ -186,6 +186,16 @@ class CorrespondenciaController extends Controller
     return redirect()->route('home', $ci->funcionario_destinatario)->with('success','Recebimento confirmado');
    }
 
+    public function recusaCi($id){
+
+
+    $ci=Correspondencia::find($id);
+
+    $ci->update(['status'=>'recusado', 'data_recebimento'=>now()]);
+
+    return redirect()->route('home', $ci->funcionario_destinatario)->with('success','Recusa de CI confirmada');
+   }
+
    public function delete($id){
 
     $ci=Correspondencia::find($id);

@@ -120,16 +120,19 @@
                                         @else
                                             <td>{{ date('d-m-Y H:i', strtotime($correspondencia->data_recebimento)) }}</td>
                                         @endif
-                                        @if ($correspondencia->status == 'aberto')
+                                         @if ($correspondencia->status == 'aberto')
                                             <td class="text-danger">Aberto</td>
-                                        @else
+                                        @elseif($correspondencia->status == 'recusado')
+                                            <td class="text-warning">Recusada</td>
+
+                                            @else
                                             <td class="text-success">Recebido</td>
                                         @endif
                                         <td><a href="{{ route('ci', $correspondencia->id) }}" class="btn btn-info"
                                                 title="Visualizar"><i class="fa fa-eye"></i></a>
 
                                             @if ($correspondencia->loja_origem == Auth::user()->loja_id || Auth::user()->role == 'admin')
-                                                @if ($correspondencia->status == 'recebido')
+                                                @if ($correspondencia->status == 'recebido' )
 
                                                 @else
                                                     <a href="{{ route('editar-ci', $correspondencia->id) }}"
@@ -142,13 +145,15 @@
                                             @elseif(Auth::user()->loja_id == null)
 
                                             @else
-                                                @if ($correspondencia->status == 'recebido')
+                                                @if ($correspondencia->status == 'recebido' || $correspondencia->status == 'recusado')
 
-                                                @else
+                                               @else
+                                                 <a href="{{ route('recusa', $correspondencia->id) }}"
+                                                        class="btn btn-warning" title="Recusar"><i class="fa-solid fa-ban"></i></a>
                                                     <a href="{{ route('confirma', $correspondencia->id) }}"
                                                         class="btn btn-danger" title="Confirmar"><i
                                                             class="fa fa-check"></i></a>
-                                            @endif
+                                                @endif
                                         </td>
                                 @endif
                                 </tr>

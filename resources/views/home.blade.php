@@ -400,7 +400,10 @@
                                         @endif
                                         @if ($correspondencia->status == 'aberto')
                                             <td class="text-danger">Aberto</td>
-                                        @else
+                                        @elseif($correspondencia->status == 'recusado')
+                                            <td class="text-success">Recusada</td>
+
+                                            @else
                                             <td class="text-success">Recebido</td>
                                         @endif
                                         <td><a href="{{ route('ci', $correspondencia->id) }}" class="btn btn-info"
@@ -408,6 +411,7 @@
 
                                             @if ($correspondencia->loja_origem == Auth::user()->loja_origem)
                                                 @if ($correspondencia->status == 'recebido')
+
                                                 @else
                                                     <a href="{{ route('editar-ci', $correspondencia->id) }}"
                                                         class="btn btn-success" title="Editar"><i
@@ -420,7 +424,10 @@
 
                                             @else
                                                 @if ($correspondencia->status == 'recebido')
+
                                                 @else
+                                                 <a href="{{ route('recusa', $correspondencia->id) }}"
+                                                        class="btn btn-warning" title="Recusar"><i class="fa-solid fa-ban"></i></a>
                                                     <a href="{{ route('confirma', $correspondencia->id) }}"
                                                         class="btn btn-danger" title="Confirmar"><i
                                                             class="fa fa-check"></i></a>
